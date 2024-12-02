@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:00:05 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/12/01 18:50:34 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/12/02 19:48:58 by brunhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@ char		*ft_error_msg_construct(int nbr, ...);
 int			ft_put_error_msg(char *error_msg, int exit_status);
 
 // PARSE FUNCTIONS
-void		ft_parse_input(char **av, int ac);
+void		ft_input_parse(char **av, int ac);	
+void		ft_input_validation(char **av, int ac);
 void		ft_parse_texture(t_cub *cub);
 void		ft_parse_color(t_cub *cub, char *line);
 
 // CUB FUNCTIONS
 t_cub		*ft_get_cub(void);
-void		ft_init_cub(void);
+t_cub		*ft_init_cub(void);
 
 // TEXTURE FUNCTIONS
 t_texture	*ft_init_texture(void);
@@ -41,8 +42,6 @@ void		ft_init_map(t_cub *cub);
 void		ft_alloc_map(t_cub *cub);
 void		ft_print_map(t_map *map);
 void		ft_get_map_textures(t_map *map, char *line);
-void		ft_clean_map_spaces(char **line);
-void		ft_get_map_info(t_cub *cub, char *line);
 void		ft_trim_map(t_cub *cub);
 void		ft_look_for_invalid_map(t_cub *cub);
 

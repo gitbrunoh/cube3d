@@ -1,0 +1,14 @@
+NO /home/brunhenr/cube3D/Cub3D/includes/textures/light_wall.xpm
+SO /home/brunhenr/cube3D/Cub3D/includes/textures/moss_wall.xpm
+WE /home/brunhenr/cube3D/Cub3D/includes/textures/stone_wall.xpm
+EA /home/brunhenr/cube3D/Cub3D/includes/textures/wood_wall.xpm
+
+F 220,100,0
+C 225,30,0
+
+1111111 
+1000N11
+1011011
+1001011
+1101111
+1111111

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:39:51 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/12/01 18:19:08 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/12/02 18:29:27 by brunhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ typedef struct s_map
 typedef struct s_cub
 {
 	t_map	*map;
-	void	*mlx;
+	void	*mlx_ptr;
 	void	*win;
-	void	*img_ptr;
+	void	*img;
 	char	*addr;
 	int		bpp;
-	int		line_len;
+	int		line_lenght;
 	int		endian;
 	char	*file;
 	char	*line;

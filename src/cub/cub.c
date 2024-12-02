@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:44:27 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/11/30 15:49:37 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/12/02 18:04:18 by brunhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,18 @@ t_cub	*ft_get_cub(void)
 	return (&cub);
 }
 
-void	ft_init_cub(void)
+t_cub	*ft_init_cub(void)
 {
 	t_cub	*cub;
 
 	cub = ft_get_cub();
-	ft_alloc_map(cub);
-	ft_look_for_invalid_map(cub);
-	ft_trim_map(cub);
-	ft_call_flood(cub->map);
-	ft_check_player(cub->map);
-	ft_print_map(cub->map);
-	ft_init_mlx(cub);
+	//ft_alloc_map(cub);
+	// ft_look_for_invalid_map(cub);
+	// ft_trim_map(cub);
+	// ft_call_flood(cub->map);
+	// ft_check_player(cub->map);
+	//ft_print_map(cub->map);
+	// ft_init_mlx(cub);
+	// mlx_loop(cub->mlx);
+	return (cub);
 }

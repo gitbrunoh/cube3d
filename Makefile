@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+         #
+#    By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 17:37:50 by ncampbel          #+#    #+#              #
-#    Updated: 2024/12/01 18:20:18 by ncampbel         ###   ########.fr        #
+#    Updated: 2024/12/02 19:11:46 by brunhenr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC_CUB_MLX_DIR = mlx hooks image
 
 SRC_ERROR_DIR = error
 
-SRC_PARSE_DIR = parse
+SRC_PARSE_DIR = validation parse
 
 SRC_PARSE_MAP_DIR = map floodfill color
 

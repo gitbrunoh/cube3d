@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 23:43:58 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/11/30 13:50:50 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/12/02 19:49:12 by brunhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,20 +64,20 @@ void	ft_alloc_map(t_cub *cub)
 	close(cub->fd);
 }
 
-void	ft_clean_map_spaces(char **line)
-{
-	int	j;
+// void	ft_clean_map_spaces(char **line)
+// {
+// 	int	j;
 
-	j = -1;
-	while ((*line)[++j])
-	{
-		if (ft_isspace((*line)[j]) && (*line)[j] != ' ')
-			(*line)[j] = ' ';
-	}
-}
+// 	j = -1;
+// 	while ((*line)[++j])
+// 	{
+// 		if (ft_isspace((*line)[j]) && (*line)[j] != ' ')
+// 			(*line)[j] = ' ';
+// 	}
+// }
 
-void	ft_get_map_info(t_cub *cub, char *line)
-{
-	ft_clean_map_spaces(&line);
-	ft_get_map_textures(cub->map, line);
-}
+// void	ft_get_map_info(t_cub *cub, char *line)
+// {
+// 	ft_clean_map_spaces(&line);
+// 	ft_get_map_textures(cub->map, line);
+// }

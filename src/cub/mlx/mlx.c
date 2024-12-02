@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 15:50:13 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/12/01 18:41:29 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/12/02 12:38:21 by brunhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,4 @@ void	ft_init_mlx(t_cub *cub)
 		ERROR_PRINT(ERROR_MSG(1, ERROR_WIN), 1);
 	ft_image_hub(cub);
 	ft_call_hooks(cub);
-	mlx_loop(cub->mlx);
 }
