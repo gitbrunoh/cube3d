@@ -6,25 +6,25 @@
 /*   By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 15:50:13 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/12/02 12:38:21 by brunhenr         ###   ########.fr       */
+/*   Updated: 2024/12/02 20:08:36 by brunhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/headers.h"
 
-static void	ft_call_hooks(t_cub *cub)
-{
-	mlx_hook(cub->win, 17, 1L << 7, ft_close_x, cub);
-}
+// static void	ft_call_hooks(t_cub *cub)
+// {
+// 	mlx_hook(cub->win, 17, 1L << 7, ft_close_x, cub);
+// }
 
-void	ft_init_mlx(t_cub *cub)
-{
-	cub->mlx = mlx_init();
-	if (!cub->mlx)
-		ERROR_PRINT(ERROR_MSG(1, ERROR_MLX), 1);
-	cub->win = mlx_new_window(cub->mlx, SCREEN_HEIGHT, SCREEN_WIDTH, NAME);
-	if (!cub->win)
-		ERROR_PRINT(ERROR_MSG(1, ERROR_WIN), 1);
-	ft_image_hub(cub);
-	ft_call_hooks(cub);
-}
+// void	ft_init_mlx(t_cub *cub)
+// {
+// 	cub->mlx = mlx_init();
+// 	if (!cub->mlx)
+// 		ERROR_PRINT(ERROR_MSG(1, ERROR_MLX), 1);
+// 	cub->win = mlx_new_window(cub->mlx, SCREEN_HEIGHT, SCREEN_WIDTH, NAME);
+// 	if (!cub->win)
+// 		ERROR_PRINT(ERROR_MSG(1, ERROR_WIN), 1);
+// 	ft_image_hub(cub);
+// 	ft_call_hooks(cub);
+// }
