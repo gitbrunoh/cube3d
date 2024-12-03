@@ -6,7 +6,7 @@
 /*   By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:04:32 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/12/02 18:42:52 by brunhenr         ###   ########.fr       */
+/*   Updated: 2024/12/03 07:54:31 by brunhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 // 480
 // NAME
 # define NAME "Cub3D"
+# define TITLE "cub3d brunhenr e ncampbel - 42Lisboa"
 
 // ERROR MACROS
 # define ERROR_MSG ft_error_msg_construct

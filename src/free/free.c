@@ -6,11 +6,59 @@
 /*   By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 20:43:29 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/12/02 18:46:14 by brunhenr         ###   ########.fr       */
+/*   Updated: 2024/12/03 08:08:40 by brunhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/headers.h"
+
+// static void	ft_clear_player(t_player *player)
+// {
+// 	if (player)
+// 		free(player);
+// }
+
+// static void	ft_clear_color(t_color *color)
+// {
+// 	if (color->input)
+// 		free(color->input);
+// 	if (color)
+// 		free(color);
+// }
+
+// static void	ft_clear_texture(t_texture *texture)
+// {
+// 	if (texture->north)
+// 		free(texture->north);
+// 	if (texture->south)
+// 		free(texture->south);
+// 	if (texture->east)
+// 		free(texture->east);
+// 	if (texture->west)
+// 		free(texture->west);
+// 	if (texture->ceiling)
+// 		ft_clear_color(texture->ceiling);
+// 	if (texture->floor)
+// 		ft_clear_color(texture->floor);
+// 	if (texture)
+// 		free(texture);
+// }
+
+// static void	ft_clear_map(t_map *map)
+// {
+// 	if (map && map->map)
+// 		ft_free_array(map->map);
+// 	if (map && map->ff_map)
+// 		ft_free_array(map->ff_map);
+// 	if (map->texture)
+// 		ft_clear_texture(map->texture);
+// 	if (map->path)
+// 		free(map->path);
+// 	if (map->player)
+// 		ft_clear_player(map->player);
+// 	if (map)
+// 		free(map);
+// }
 
 void ft_clear_cub(void)
 {
