@@ -6,7 +6,7 @@
 /*   By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:04:32 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/12/03 07:54:31 by brunhenr         ###   ########.fr       */
+/*   Updated: 2024/12/08 07:02:41 by brunhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,17 @@
 # define SCREEN_HEIGHT 300
 // 640
 // 480
+
+// COLORS
+# define Red 0xFF0000
+# define Green 0x00FF00
+# define Blue 0x0000FF
+# define White 0xFFFFFF
+# define Cyan 0x00FFFF
+
 // NAME
 # define NAME "Cub3D"
-# define TITLE "cub3d brunhenr e ncampbel - 42Lisboa"
+# define TITLE "Cub3d brunhenr e ncampbel - 42Lisboa"
 
 // ERROR MACROS
 # define ERROR_MSG ft_error_msg_construct

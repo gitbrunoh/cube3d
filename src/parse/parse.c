@@ -62,7 +62,7 @@ static void	ft_open_file(char *input)
 	else
 		ft_parse_input(cub, input);
 	close(cub->fd);
-	free(cub->line);
+	free(cub->line); //esse free vai ficar aqui? vejamos se da na mesma
 }
 
 void	ft_input_parse(char **av, int ac)
