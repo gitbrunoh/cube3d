@@ -5,7 +5,18 @@
 
  To do this, we used MinilibX, which is a simplified library based on X-System.
 
- project developed by me and https://github.com/nyykooo 
+ project developed by me and https://github.com/nyykooo  
+
+ You can walk through the maze using the keys "w", "s", "a" and "d".
+ If you hold the keys "shift" + "w" the player will run.  
+
+  Bonus list:  
+
+	-Wall collisions.  
+	-A minimap system.  
+	-Doors which can open and close. (use the key "e" to open and "c" to close)  
+	-animated sprite.  
+	-Rotate the point of view with the mouse.  
 
 ![grade](final.png)
 
