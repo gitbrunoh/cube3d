@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 16:46:29 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/11/30 13:50:29 by ncampbel         ###   ########.fr       */
+/*   Updated: 2025/01/12 19:10:42 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,21 @@
 
 static void	ft_analyze_cell(t_map *map, int col, int row)
 {
-	if ((col >= 0 || col < (int)ft_strlen(map->ff_map[row]) \
-		|| row >= 0 || row < (int)map->rows) && (map->ff_map[row][col] == ' ' \
-		|| map->ff_map[row][col] == 0))
-		return ;
+	if (row < 0 || row >= (int)map->rows || col < 0
+		|| col >= (int)ft_strlen(map->ff_map[row]))
+		ERROR_PRINT(ERROR_MSG(1, ERROR_MAP_CLOSE), 1);
+	if (map->ff_map[row][col] == ' ' || map->ff_map[row][col] == 0)
+		ERROR_PRINT(ERROR_MSG(1, ERROR_MAP_CLOSE), 1);
 }
 
 static void	ft_floodfill(t_map *map, int col, int row)
 {
-	if (col < 0 || col >= (int)ft_strlen(map->ff_map[row])
-		|| row < 0 || row >= (int)map->rows || map->ff_map[row][col] == ' '
-		|| map->ff_map[row][col] == '1' || map->ff_map[row][col] == 'x'
-		|| map->ff_map[row][col] == 0)
+	if (row < 0 || row >= (int)map->rows
+		|| col < 0 || col >= (int)ft_strlen(map->ff_map[row])
+		|| map->ff_map[row][col] == ' ' \
+		|| map->ff_map[row][col] == '1' \
+		|| map->ff_map[row][col] == 'x' \
+		|| map->ff_map[row][col] == '\0')
 	{
 		ft_analyze_cell(map, col, row);
 		return ;
@@ -48,7 +51,9 @@ void	ft_call_flood(t_map *map)
 	{
 		j = -1;
 		while (map->ff_map[i][++j])
-			if (map->ff_map[i][j] == '0')
+			if (map->ff_map[i][j] == '0' || map->ff_map[i][j] == 'N' \
+				|| map->ff_map[i][j] == 'S' || map->ff_map[i][j] == 'E' \
+				|| map->ff_map[i][j] == 'W' || map->ff_map[i][j] == '2')
 				ft_floodfill(map, j, i);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:17:14 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/11/29 00:08:31 by ncampbel         ###   ########.fr       */
+/*   Updated: 2025/01/13 13:20:53 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 # define LIBFT_H
 
 # include "../../headers.h"
-
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
 
 //PARTE1
 int		ft_isalpha(int c);
@@ -103,5 +97,16 @@ bool	ft_is_pipe_redir(char c);
 char	**ft_strdupd(char **src);
 
 void	ft_free_array(char **array);
+
+int		ft_fixed_to_int(int fixed);
+float	ft_fixed_to_float(int fixed);
+int		ft_float_to_fixed(float const float_number);
+int		ft_int_to_fixed(int const i);
+
+t_list	*ft_lstget(t_list *lst, int index);
+void	ft_lstiter_param(t_list *lst, void (*f)(void *, void *), void *ptr);
+
+bool	ft_isdigit_str(char *str);
+int		ft_amount_char(char *str, char c);
 
 #endif

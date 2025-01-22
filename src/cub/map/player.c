@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 13:10:52 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/11/30 13:42:16 by ncampbel         ###   ########.fr       */
+/*   Updated: 2025/01/04 21:15:17 by brunhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,64 @@ static bool	ft_player_dir(t_map *map, int x, int y)
 	return (false);
 }
 
+static void	initial_player_dir(t_map *map)
+{
+	if (map->player->p_dir == 78)
+	{
+		map->player->dir_vector->x = -0.66;
+		map->player->dir_vector->y = 0;
+	}
+	else if (map->player->p_dir == 83)
+	{
+		map->player->dir_vector->x = 0.66;
+		map->player->dir_vector->y = 0;
+	}
+	else if (map->player->p_dir == 69)
+	{
+		map->player->dir_vector->x = 0;
+		map->player->dir_vector->y = 0.66;
+	}
+	else if (map->player->p_dir == 87)
+	{
+		map->player->dir_vector->x = 0;
+		map->player->dir_vector->y = -0.66;
+	}
+}
+
+static void	initial_cam_dir(t_map *map)
+{
+	if (map->player->p_dir == 78)
+	{
+		map->player->cam_vector->x = 0;
+		map->player->cam_vector->y = 0.66;
+	}
+	else if (map->player->p_dir == 83)
+	{
+		map->player->cam_vector->x = 0;
+		map->player->cam_vector->y = -0.66;
+	}
+	else if (map->player->p_dir == 69)
+	{
+		map->player->cam_vector->x = 0.66;
+		map->player->cam_vector->y = 0;
+	}
+	else if (map->player->p_dir == 87)
+	{
+		map->player->cam_vector->x = -0.66;
+		map->player->cam_vector->y = 0;
+	}
+}
+
 static void	ft_fill_player(t_map *map, int x, int y)
 {
 	if (map->player->p_dir != -1)
 		ERROR_PRINT(ERROR_MSG(1, ERROR_PLAYER), 1);
-	map->player->p_x = x;
-	map->player->p_y = y;
+	map->player->p_x = x + 0.5;
+	map->player->p_y = y + 0.5;
 	map->player->p_dir = map->map[x][y];
+	map->player->is_attacking = false;
+	initial_player_dir(map);
+	initial_cam_dir(map);
 }
 
 void	ft_check_player(t_map *map)
@@ -44,17 +95,4 @@ void	ft_check_player(t_map *map)
 	}
 	if (map->player->p_dir == -1)
 		ERROR_PRINT(ERROR_MSG(1, ERROR_PLAYER), 1);
-}
-
-t_player	*ft_init_player(void)
-{
-	t_player	*player;
-
-	player = (t_player *)malloc(sizeof(t_player));
-	if (!player)
-		ERROR_PRINT(ERROR_MSG(3, ERROR_READ, ": t_player player", "\"\n"), 1);
-	player->p_dir = -1;
-	player->p_x = -1;
-	player->p_y = -1;
-	return (player);
 }

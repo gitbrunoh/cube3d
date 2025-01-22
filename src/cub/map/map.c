@@ -6,7 +6,7 @@
 /*   By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 23:43:58 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/12/02 19:49:12 by brunhenr         ###   ########.fr       */
+/*   Updated: 2025/01/11 00:15:02 by brunhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,31 @@ static void	ft_init_map_content(t_cub *cub)
 		cub->map->map[i++] = NULL;
 }
 
+static t_player	*ft_init_player(void)
+{
+	t_player	*player;
+
+	player = (t_player *)ft_calloc(1, sizeof(t_player));
+	if (!player)
+		ERROR_PRINT(ERROR_MSG(3, ERROR_MLC, ": t_player player", "\"\n"), 1);
+	player->p_dir = -1;
+	player->dir_vector = (t_dir_vector *)ft_calloc(1, sizeof(t_dir_vector));
+	if (!player->dir_vector)
+		ERROR_PRINT(ERROR_MSG(3, ERROR_MLC, \
+		": t_dir_vector dir_vector", "\"\n"), 1);
+	player->cam_vector = (t_dir_vector *)ft_calloc(1, sizeof(t_dir_vector));
+	if (!player->dir_vector || !player->cam_vector)
+		ERROR_PRINT(ERROR_MSG(3, ERROR_MLC, \
+		": t_dir_vector dir_vector or cam_vector", "\"\n"), 1);
+	player->ray = (t_ray *)ft_calloc(1, sizeof(t_ray));
+	if (!player->ray)
+		ERROR_PRINT(ERROR_MSG(3, ERROR_MLC, ": t_ray ray", "\"\n"), 1);
+	return (player);
+}
+
 void	ft_init_map(t_cub *cub)
 {
-	cub->map = (t_map *)malloc(sizeof(t_map));
+	cub->map = (t_map *)ft_calloc(1, sizeof(t_map));
 	if (!cub->map)
 		ERROR_PRINT(ERROR_MSG(3, ERROR_READ, ": t_map map", "\"\n"), 1);
 	cub->map->rows = 0;
@@ -50,7 +72,7 @@ void	ft_alloc_map(t_cub *cub)
 	{
 		if (cub->line[0] == '\n' && i != 0)
 			ERROR_PRINT(ERROR_MSG(1, ERROR_MAP_EMPTY), 1);
-		if (!ft_is_text_or_color(cub->line))
+		if (!ft_is_text_or_color(cub->line, cub, false))
 		{
 			cub->map->map[i] = ft_strdup(cub->line);
 			if (!cub->map->map[i++])
@@ -63,21 +85,3 @@ void	ft_alloc_map(t_cub *cub)
 	cub->map->map[i] = NULL;
 	close(cub->fd);
 }
-
-// void	ft_clean_map_spaces(char **line)
-// {
-// 	int	j;
-
-// 	j = -1;
-// 	while ((*line)[++j])
-// 	{
-// 		if (ft_isspace((*line)[j]) && (*line)[j] != ' ')
-// 			(*line)[j] = ' ';
-// 	}
-// }
-
-// void	ft_get_map_info(t_cub *cub, char *line)
-// {
-// 	ft_clean_map_spaces(&line);
-// 	ft_get_map_textures(cub->map, line);
-// }

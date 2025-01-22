@@ -6,7 +6,7 @@
 #    By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 17:37:50 by ncampbel          #+#    #+#              #
-#    Updated: 2024/12/02 19:11:46 by brunhenr         ###   ########.fr        #
+#    Updated: 2025/01/04 20:28:57 by brunhenr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,23 +14,22 @@ NAME = cub3D
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g -o3
 
-SRC_DIR = main
+SRC_DIR = main utils
 
-SRC_CUB_DIR = cub texture color
+SRC_CUB_DIR = cub texture color map_move time ray_casting minimap
 
 SRC_CUB_MAP_DIR = map player
 
-SRC_CUB_MLX_DIR = mlx hooks image
+SRC_CUB_MLX_DIR = mlx hooks image draw_column fill_buffer mlx_utils keys move draw_utils collision dda door shading sprite sword mouse draw_sword_attack
 
 SRC_ERROR_DIR = error
 
-SRC_PARSE_DIR = validation parse
+SRC_PARSE_DIR = validation parse parse_texture get_tex_imgs
 
-SRC_PARSE_MAP_DIR = map floodfill color
+SRC_PARSE_MAP_DIR = map_parse floodfill color_parse check_colors normalize
 
-SRC_FREE_DIR = free
+SRC_FREE_DIR = free clear
 
-SRC_PRINT_DIR = print
 
 SRC = $(addsuffix .c, $(addprefix src/, $(SRC_DIR))) \
 	$(addsuffix .c, $(addprefix src/error/, $(SRC_ERROR_DIR))) \
@@ -39,8 +38,17 @@ SRC = $(addsuffix .c, $(addprefix src/, $(SRC_DIR))) \
 	$(addsuffix .c, $(addprefix src/free/, $(SRC_FREE_DIR))) \
 	$(addsuffix .c, $(addprefix src/cub/, $(SRC_CUB_DIR))) \
 	$(addsuffix .c, $(addprefix src/cub/map/, $(SRC_CUB_MAP_DIR))) \
-	$(addsuffix .c, $(addprefix src/cub/mlx/, $(SRC_CUB_MLX_DIR))) \
-	$(addsuffix .c, $(addprefix src/print/, $(SRC_PRINT_DIR)))
+	$(addsuffix .c, $(addprefix src/cub/mlx/, $(SRC_CUB_MLX_DIR)))
+
+# SRC_DIR_BONUS = main_bonus
+
+# SRC_BONUS_BON = mlx 
+
+# SRC_BONUS = $(addsuffix .c, $(addprefix src/, $(SRC_DIR_BONUS))) \
+# 	$(addsuffix .c, $(addprefix src/cub/, $(SRC_CUB_DIR))) \
+# 	$(addsuffix .c, $(addprefix src/cub/map/, $(SRC_CUB_MAP_DIR))) \
+# 	$(addsuffix .c, $(addprefix src/cub/mlx/, $(SRC_CUB_MLX_DIR))) \
+# 	$(addsuffix .c, $(addprefix src/bonus/, $(SRC_BONUS_BON)))
 
 LIBFT = includes/libs/libft/libft.a
 GNL = includes/libs/get_next_line/get_next_line.a
@@ -81,6 +89,8 @@ fclean: clean
 	$(MAKE) clean -C includes/libs/minilibx-linux -s
 
 re: fclean all
+
+bonus: 
 
 valgrind:
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) includes/maps/minimalist.cub

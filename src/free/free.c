@@ -6,16 +6,42 @@
 /*   By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 20:43:29 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/12/07 19:33:52 by brunhenr         ###   ########.fr       */
+/*   Updated: 2025/01/04 21:15:17 by brunhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/headers.h"
 
+static void	ft_clear_single_texture(t_image *texture_part)
+{
+	if (texture_part->tex)
+		ft_free_int_array(texture_part->tex, texture_part->width);
+	if (texture_part->path)
+		free(texture_part->path);
+	if (texture_part)
+		free(texture_part);
+}
+
 static void	ft_clear_player(t_player *player)
 {
 	if (player)
-		free(player);
+	{
+		if (player->sword)
+			ft_clear_single_texture(player->sword);
+		if (player->attack)
+		{
+			if (player->attack->sprite_sheet)
+				ft_clear_single_texture(player->attack->sprite_sheet);
+			free (player->attack);
+		}
+		if (player->dir_vector)
+			free(player->dir_vector);
+		if (player->cam_vector)
+			free(player->cam_vector);
+		if (player->ray)
+			free(player->ray);
+		free (player);
+	}
 }
 
 static void	ft_clear_color(t_color *color)
@@ -28,14 +54,11 @@ static void	ft_clear_color(t_color *color)
 
 static void	ft_clear_texture(t_texture *texture)
 {
-	if (texture->north)
-		free(texture->north);
-	if (texture->south)
-		free(texture->south);
-	if (texture->east)
-		free(texture->east);
-	if (texture->west)
-		free(texture->west);
+	ft_clear_single_texture(texture->north);
+	ft_clear_single_texture(texture->south);
+	ft_clear_single_texture(texture->east);
+	ft_clear_single_texture(texture->west);
+	ft_clear_single_texture(texture->door);
 	if (texture->ceiling)
 		ft_clear_color(texture->ceiling);
 	if (texture->floor)
@@ -44,7 +67,7 @@ static void	ft_clear_texture(t_texture *texture)
 		free(texture);
 }
 
-static void	ft_clear_map(t_map *map)
+void	ft_clear_map(t_map *map)
 {
 	if (map && map->map)
 		ft_free_array(map->map);
@@ -58,38 +81,4 @@ static void	ft_clear_map(t_map *map)
 		ft_clear_player(map->player);
 	if (map)
 		free(map);
-}
-
-void ft_clear_cub(void)
-{
-    t_cub *cub;
-
-    cub = ft_get_cub();
-    if (cub->img)
-    {
-        //printf("Destroying image\n");
-        mlx_destroy_image(cub->mlx_ptr, cub->img);
-    }
-    if (cub->win)
-    {
-        //printf("Destroying window\n");
-        mlx_destroy_window(cub->mlx_ptr, cub->win);
-    }
-    if (cub->mlx_ptr)
-    {
-        //printf("Ending mlx loop\n");
-        mlx_loop_end(cub->mlx_ptr);
-        //printf("Destroying display\n");
-        mlx_destroy_display(cub->mlx_ptr);
-        //printf("Freeing mlx\n");
-        free(cub->mlx_ptr);
-    }
-    if (cub->fd != -1)
-        close(cub->fd);
-    if (cub->line)
-        free(cub->line);				
-    if (cub->file)
-        free(cub->file);
-    if (cub->map)
-        ft_clear_map(cub->map);
 }

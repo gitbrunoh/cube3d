@@ -6,7 +6,7 @@
 /*   By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 19:08:00 by brunhenr          #+#    #+#             */
-/*   Updated: 2024/12/02 19:53:35 by brunhenr         ###   ########.fr       */
+/*   Updated: 2025/01/05 17:08:03 by brunhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	ft_validate_arguments(int ac)
 		ERROR_PRINT(ERROR_MSG(1, ERROR_AC), 1);
 }
 
-static void	ft_validate_extension(char *name)
+void	ft_validate_extension(char *name, char *ext)
 {
 	int	len;
 
@@ -29,18 +29,18 @@ static void	ft_validate_extension(char *name)
 	{
 		if (name[len] == '.')
 		{
-			if (ft_strcmp(&name[len], ".cub") == 0)
+			if (ft_strcmp(&name[len], ext) == 0)
 				return ;
 			else
-				ERROR_PRINT(ERROR_MSG(4, ERROR_EXT, name, "\"\n"), 1);
+				ERROR_PRINT(ERROR_MSG(3, ERROR_EXT, name, "\"\n"), 1);
 		}
 		len--;
 	}
-	ERROR_PRINT(ERROR_MSG(4, ERROR_EXT, name, "\"\n"), 1);
+	ERROR_PRINT(ERROR_MSG(3, ERROR_EXT, name, "\"\n"), 1);
 }
 
 void	ft_input_validation(char **av, int ac)
 {
 	ft_validate_arguments(ac);
-	ft_validate_extension(av[1]);
+	ft_validate_extension(av[1], ".cub");
 }

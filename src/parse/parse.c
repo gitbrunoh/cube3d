@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 19:09:31 by brunhenr          #+#    #+#             */
-/*   Updated: 2024/12/02 20:06:58 by brunhenr         ###   ########.fr       */
+/*   Updated: 2025/01/06 17:26:12 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	ft_parse_input(t_cub *cub, char *file)
 	ft_init_map(cub);
 	while (cub->line)
 	{
-		if (!ft_is_text_or_color(cub->line))
+		if (!ft_is_text_or_color(cub->line, cub, true))
 			cub->map->rows++;
 		if (ft_strlen(cub->line) > INT_MAX)
 			ERROR_PRINT(ERROR_MSG(3, ERROR_MAP_SIZE, file, "\"\n"), 1);
@@ -62,7 +62,7 @@ static void	ft_open_file(char *input)
 	else
 		ft_parse_input(cub, input);
 	close(cub->fd);
-	free(cub->line); //esse free vai ficar aqui? vejamos se da na mesma
+	free(cub->line);
 }
 
 void	ft_input_parse(char **av, int ac)
@@ -70,5 +70,5 @@ void	ft_input_parse(char **av, int ac)
 	if (ac != 2)
 		ERROR_PRINT(ERROR_MSG(1, ERROR_AC), 1);
 	ft_open_file(av[1]);
-	ft_parse_texture(ft_get_cub());
+	ft_parse_texture();
 }
