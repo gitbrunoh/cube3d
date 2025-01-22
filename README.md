@@ -5,7 +5,7 @@
 
  To do this, we used MinilibX, which is a simplified library based on X-System.
 
- project developed by me and https://github.com/nyykooo  
+ Project developed by me and https://github.com/nyykooo  
 
  You can walk through the maze using the keys "w", "s", "a" and "d".
  If you hold the keys "shift" + "w" the player will run.  
