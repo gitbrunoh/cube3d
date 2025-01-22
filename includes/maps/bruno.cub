@@ -1,11 +1,11 @@
-NO ./includes/textures/night_fence.xpm
-SO ./includes/textures/night_grass.xpm
-WE ./includes/textures/night_grass.xpm
-EA ./includes/textures/night_fence.xpm
+NO ./includes/textures/light_wall.xpm
+SO ./includes/textures/night_fence.xpm
+WE ./includes/textures/stone_wall.xpm
+EA ./includes/textures/night_grass.xpm
 DO ./includes/textures/wood_door.xpm
 
-F 104,140,58
-C 0,0,0 
+F 0,0,0
+C 0,0,0
 
 1111
 1001111111111111111111111111111111

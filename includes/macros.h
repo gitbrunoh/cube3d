@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brunhenr <brunhenr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:04:32 by ncampbel          #+#    #+#             */
-/*   Updated: 2025/01/13 13:24:43 by ncampbel         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:32:38 by brunhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@
 # define POINTERMOTION_MASK 0x40
 
 // SCREEN MACROS
-# define SCREEN_WIDTH 640
+# define SCREEN_WIDTH 800
 # define SCREEN_HEIGHT 600
 
 // TEXTURE MACROS
